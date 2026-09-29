@@ -1,0 +1,71 @@
+.travel-collage {
+    padding: 8px 24px 24px;
+    background: var(--color-background);
+}
+
+.collage-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.postcard {
+    margin: 0;
+    padding: 10px 10px 6px;
+    background: var(--color-surface);
+    box-shadow: 0 8px 24px rgb(48 42 70 / 12%), 0 2px 6px rgb(48 42 70 / 6%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+    figcaption {
+        padding: 12px 4px 8px;
+        text-align: center;
+        font-family: Georgia, serif;
+        font-size: 17px;
+        font-style: italic;
+        color: var(--color-primary);
+    }
+    &:hover {
+        transform: translateY(-8px) rotate(0deg);
+        box-shadow: 0 16px 32px rgb(48 42 70 / 18%);
+        z-index: 5;
+    }
+}
+
+.postcard--rome {
+    transform: rotate(-3deg);
+}
+
+.postcard--santorini {
+    transform: rotate(2deg);
+}
+
+.postcard--japan {
+    transform: rotate(-1deg);
+}
+
+.postcard--morocco {
+    transform: rotate(3deg);
+}
+
+.postcard--italy {
+    transform: rotate(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .postcard {
+        transition: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .collage-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

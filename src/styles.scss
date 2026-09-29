@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================
+   WanderWise - Global Design System
+   Theme: Sunset Explorer
+   ========================================= */
+
+:root {
+    // Brand colours
+    --color-primary: #302a46;
+    --color-accent: #ce643d;
+    --color-highlight: #e7b85a;
+    // Backgrounds
+    --color-background: #fff4e6;
+    --color-surface: #ffffff;
+    // Typography
+    --color-text: #302a46;
+    --color-text-muted: #61576a;
+    // Borders
+    --color-border: #e9d9cb;
+}
+
+
+/* Global reset */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
