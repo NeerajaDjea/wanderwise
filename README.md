@@ -1,4 +1,6 @@
 # Wanderwise
+<img width="736" height="920" alt="image" src="https://github.com/user-attachments/assets/a5082307-7262-4516-9d9b-539aa2cc821d" />
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.0.
 
