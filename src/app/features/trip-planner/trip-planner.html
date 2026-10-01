@@ -1,1 +1,111 @@
-<p>trip-planner works!</p>
+<section class="planner">
+  <div class="planner-header">
+    <span class="eyebrow">PLAN YOUR NEXT ADVENTURE</span>
+
+    <h1>Tell us about your trip.</h1>
+
+    <p>
+      Share a few details and WanderWise will eventually use AI to create a personalised itinerary
+      for you.
+    </p>
+  </div>
+
+  <form class="planner-form" (submit)="onSubmit($event)">
+    <label>
+      Destination
+
+      <input
+        type="text"
+        placeholder="e.g. Rome, Japan, Santorini"
+        [formField]="tripForm.destination"
+      />
+      @if (tripForm.destination().touched() && tripForm.destination().invalid()) {
+        <div class="field-error">
+          @for (error of tripForm.destination().errors(); track error.kind) {
+            <span>{{ error.message }}</span>
+          }
+        </div>
+      }
+    </label>
+
+    <label>
+      Number of days
+
+      <input type="number" [formField]="tripForm.numberOfDays" />
+      @if (tripForm.travelStyle().touched() && tripForm.travelStyle().invalid()) {
+        <div class="field-error">
+          @for (error of tripForm.travelStyle().errors(); track error.kind) {
+            <span>{{ error.message }}</span>
+          }
+        </div>
+      }
+    </label>
+
+    <label>
+      Budget (£)
+
+      <input type="number" [formField]="tripForm.budget" />
+      @if (tripForm.travelStyle().touched() && tripForm.travelStyle().invalid()) {
+        <div class="field-error">
+          @for (error of tripForm.travelStyle().errors(); track error.kind) {
+            <span>{{ error.message }}</span>
+          }
+        </div>
+      }
+    </label>
+
+    <label>
+      Interests
+
+      <textarea
+        rows="4"
+        placeholder="Food, history, beaches, hiking..."
+        [formField]="tripForm.interests"
+      ></textarea>
+    </label>
+
+    <label>
+      Travel style
+
+      <select [formField]="tripForm.travelStyle">
+        <option value="">Choose a travel style</option>
+        <option value="relaxed">Relaxed</option>
+        <option value="balanced">Balanced</option>
+        <option value="packed">See as much as possible</option>
+      </select>
+    </label>
+    <button class="generate-button" type="submit" [disabled]="tripForm().invalid()">
+      Generate My Itinerary
+      <span aria-hidden="true">✦</span>
+    </button>
+  </form>
+  @if (submittedTrip(); as trip) {
+    <section class="trip-summary">
+      <span class="eyebrow">YOUR TRIP REQUEST</span>
+
+      <h2>{{ trip.destination }}</h2>
+
+      <div class="summary-grid">
+        <div>
+          <span class="summary-label">Duration</span>
+          <strong>{{ trip.numberOfDays }} days</strong>
+        </div>
+
+        <div>
+          <span class="summary-label">Budget</span>
+          <strong>£{{ trip.budget }}</strong>
+        </div>
+
+        <div>
+          <span class="summary-label">Travel style</span>
+          <strong>{{ trip.travelStyle }}</strong>
+        </div>
+
+        <div>
+          <span class="summary-label">Interests</span>
+          <strong>{{ trip.interests }}</strong>
+        </div>
+      </div>
+    </section>
+  }
+</section>
